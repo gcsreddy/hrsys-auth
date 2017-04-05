@@ -1,0 +1,23 @@
+{
+  "name": "hrsys-auth",
+  "version": "1.0.0",
+  "description": "authentication backend for HRSys",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gcsreddy",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.2.0",
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.3.0",
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.9.1",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1"
+  }
+}
