@@ -16,7 +16,8 @@ app.use(bodyParser.json());
 app.set('port',process.env.PORT || 3300);
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers',
+  'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin');
   next();
 });
 
@@ -27,7 +28,6 @@ var User = require('./models/user');
 
 
 mongoose.connect('mongodb://localhost/hrsysdb');
-//mongoose.connect('mongodb://imguruuser:imgurupassword@ds143340.mlab.com:43340/heroku_z1zz9ksq');
 mongoose.connection.on('open',function(){
   console.log('mongoose connected');
 });
