@@ -14,9 +14,9 @@ module.exports =  function (app) {
   router.post('/register', userAuth.register);
 
   //authenticate user and get a jwt
-  router.post('/authenticate',userAuth.authenticate);
+  router.post('/login',userAuth.login);
 
-  router.get('/dashboard',
+  router.get('/authenticate',
     passport.authenticate('jwt',{session:false}),
     function(req, res){
       console.log("heyy I am authenticated in dashboard");
