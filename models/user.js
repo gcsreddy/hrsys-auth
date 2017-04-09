@@ -9,7 +9,8 @@ var UserAcctSchema = new mongoose.Schema({
   role:{type:String, enum:['client','manager','admin'],default:'client'},
   date_created:{type:Date, default:Date.now},
   visits:{type:Number, default:0},
-  active:{type:Boolean, default:false}
+  active:{type:Boolean, default:false},
+  loggedin:{type:Boolean, default:false}
 });
 
 //save users's hash password

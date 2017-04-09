@@ -6,11 +6,14 @@ var UserAcct = require('../models/user');
 module.exports= function(passport) {
   //verify will be a func with params jwt_payload, done
   passport.use(new JwtStrategy(opts,function(jwt_payload, done){
-    UserAcct.findOne({id:jwt_payload.id},function(err,user){
+    //https://jwt.io/ paste the jwt to see payload props
+
+    UserAcct.find({_id:jwt_payload._doc._id},function(err,user){
       if(err){
         return done(err, false);
       }
       if(user){
+        console.log(user);
         return done(null, user);
       }else{
         return done(null, false);
