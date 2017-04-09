@@ -16,7 +16,7 @@ module.exports = {
         password:req.body.password,
         loggedin:true
       });
-      newUserObj.save(function(err){
+      newUserObj.save(function(err, userAcc){
         if(err){
           console.log('error registering'+err);
           return res.json({
@@ -24,7 +24,16 @@ module.exports = {
             message:"user already exist"
           })
         }else{
+          console.log('in register');
+          console.log(userAcc);
+          var token =jwt.sign(
+            userAcc,
+            opts.secretOrKey,
+            {expiresIn:1800}
+          );
+          res.header('Authorization','JWT '+token);
           res.json({success:"true",message:"new user registered"});
+          console.log(res);
         }
       });
     }
@@ -96,11 +105,12 @@ module.exports = {
                 opts.secretOrKey,
                 {expiresIn:1800}
               );
+              res.header('Authorization','JWT '+token);
               res.json({
                 success:"true",
                 authenticated:"true",
                 message:"user authenticated successfully",
-                token:'JWT '+token
+                token:'JWT '+token //TODO: remove token from json
               });
             }else{
               res.json({

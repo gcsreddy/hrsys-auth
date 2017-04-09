@@ -17,8 +17,16 @@ app.set('port',process.env.PORT || 3300);
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers',
-  'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin');
+  'Authorization, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin');
+
   next();
+});
+
+app.use((req, res, next) => {
+//http://stackoverflow.com/questions/41616757/angular-2-http-observable-request-not-returning-response-header
+// List of headers that are to be exposed to the XHR front-end object
+res.header('Access-Control-Expose-Headers', 'Authorization');
+next();
 });
 
 // app.get("/",function(req,res){
