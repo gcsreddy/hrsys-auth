@@ -113,10 +113,11 @@ module.exports = {
                 token:'JWT '+token //TODO: remove token from json
               });
             }else{
-              res.json({
+              res.status(401).json({
                 success:"false",
                 message:"incorrect username and password"
               });
+
             }
           });
         }
