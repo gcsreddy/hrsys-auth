@@ -7,7 +7,7 @@ module.exports = {
 
   register :function(req, res) {
     if(!req.body.email || !req.body.password){
-      res.json({
+      res.status(400).json({
         success:"false",message:"please enter email, password"
       });
     }else{
@@ -19,7 +19,7 @@ module.exports = {
       newUserObj.save(function(err, userAcc){
         if(err){
           console.log('error registering'+err);
-          return res.json({
+          return res.status(403).json({
             success:"false",
             message:"user already exist"
           })
@@ -67,7 +67,7 @@ module.exports = {
   login : function(req, res){
     //console.log(req.body);
     if(!req.body.email || !req.body.password){
-      res.json({
+      res.status(400).json({
         success:"false",message:"please enter email, password"
       });
     }else{
