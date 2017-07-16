@@ -55,9 +55,9 @@ module.exports = {
       //console.log(user);
       //console.log("heyy I am authenticated in dashboard");
       if(user && user.loggedin){
-        res.json({success:"true"});
+        res.status(200).json({success:"true"});
       }else{
-        res.json({success:"false"});
+        res.status(401).json({success:"false"});
       }
 
     });
