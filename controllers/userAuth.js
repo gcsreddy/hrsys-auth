@@ -39,6 +39,8 @@ module.exports = {
     }
   },
 
+  //authenticate method will looks for Authorization header and validates
+  //the JWT ('jwt') token. If failes, default return status 401
   authenticate :[passport.authenticate('jwt',{session:false}),
   function(req, res){
     //if this function gets called, authentication is successful.
