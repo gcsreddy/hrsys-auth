@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 app.set('port',process.env.PORT || 3300);
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', '*');//TODO: remove *
   res.header('Access-Control-Allow-Headers',
   'Authorization, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin');
 
