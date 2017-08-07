@@ -74,7 +74,9 @@ module.exports = {
       });
     }else{
       //find user and compare password
-      UserAcct.findOne({username:req.body.email}, function(err, userAcc){
+      UserAcct.findOne(
+        {username:req.body.email},
+        function(err, userAcc){
         if(err){
           throw err;
         }
@@ -102,8 +104,14 @@ module.exports = {
                   }
                 }
               );
+              const payloadObj = {
+                _id:userAcc._id,
+                username:userAcc.username
+              };
+              console.log(payloadObj);
+              console.log(userAcc);
               var token =jwt.sign(
-                userAcc,
+                payloadObj,
                 opts.secretOrKey,
                 {expiresIn:1800}
               );

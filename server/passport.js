@@ -8,7 +8,7 @@ module.exports= function(passport) {
   passport.use(new JwtStrategy(opts,function(jwt_payload, done){
     //https://jwt.io/ paste the jwt to see payload props
 
-    UserAcct.find({_id:jwt_payload._doc._id},function(err,user){
+    UserAcct.find({_id:jwt_payload._id},function(err,user){
       if(err){
         return done(err, false);
       }
