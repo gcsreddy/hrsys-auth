@@ -24,10 +24,16 @@ module.exports = {
             message:"user already exist"
           })
         }else{
+          //TODO: the following code is repeated in login function.
+          //TODO: fix this repeatition.
           console.log('in register');
           console.log(userAcc);
+          const payloadObj = {
+            _id:userAcc._id,
+            username:userAcc.username
+          };
           var token =jwt.sign(
-            userAcc,
+            payloadObj,
             opts.secretOrKey,
             {expiresIn:1800}
           );
@@ -46,7 +52,7 @@ module.exports = {
     //if this function gets called, authentication is successful.
     //`req.user` contains the authenticated user
     //see passportjs.org/docs/authenticate
-
+    //console.log(req);
     //check if user has logged out before?
     UserAcct.findOne(
       {username:req.user[0].username},
