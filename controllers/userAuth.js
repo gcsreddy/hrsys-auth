@@ -35,7 +35,7 @@ module.exports = {
           var token =jwt.sign(
             payloadObj,
             opts.secretOrKey,
-            {expiresIn:1800}
+            {expiresIn:18000}
           );
           res.header('Authorization','JWT '+token);
           res.json({success:"true",message:"new user registered"});
@@ -87,7 +87,7 @@ module.exports = {
           throw err;
         }
         if(!userAcc){
-          res.json({
+          res.status(400).json({
             success:"false",
             message:"user not found"
           });
