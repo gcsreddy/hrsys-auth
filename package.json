@@ -13,11 +13,11 @@
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "jsonwebtoken": "^7.3.0",
+    "jsonwebtoken": "^8.1.0",
     "mongodb": "^2.2.25",
     "mongoose": "^4.9.1",
     "morgan": "^1.8.1",
-    "passport": "^0.3.2",
-    "passport-jwt": "^2.2.1"
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1"
   }
 }
