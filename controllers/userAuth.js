@@ -52,7 +52,7 @@ module.exports = {
     //if this function gets called, authentication is successful.
     //`req.user` contains the authenticated user
     //see passportjs.org/docs/authenticate
-    //console.log(req);
+    console.log(req);
     //check if user has logged out before?
     UserAcct.findOne(
       {username:req.user[0].username},
